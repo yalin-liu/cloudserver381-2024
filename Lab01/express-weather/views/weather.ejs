@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>World Weather</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Weather of <%= city %></h2>
+  <div class="list-group">
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Current Temperature</h4>
+      <p class="list-group-item-text"><%= currTemp %></p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Max Temperature</h4>
+      <p class="list-group-item-text"><%= maxTemp %></p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Min Temperature</h4>
+      <p class="list-group-item-text"><%= minTemp %></p>
+    </a>
+		<a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Humidity</h4>
+      <p class="list-group-item-text"><%= humidity %></p>
+    </a>
+  </div>
+	<a href="/" type="button" class="btn btn-success">Home</a>
+</div>
+
+</body>
+</html>

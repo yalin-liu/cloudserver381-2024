@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "description": "A very simple Node.js MongoDB app",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongodb": "3.1"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {
+        "start": "node server"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "description": "sort example",
+    "author": "Raymond SO <raymond.wc.so@gmail.com>",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongodb": "3.6.5"
+    },
+    "engine": "node >= 12.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
