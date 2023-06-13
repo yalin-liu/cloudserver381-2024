@@ -1,0 +1,15 @@
+{
+	"name": "Resize",
+	"description": "COMPS381F - Resize Image",
+	"version": "0.0.1",
+	"dependencies": {
+		"formidable": "*",
+		"sharp": "^0.23.1"
+	},
+	"scripts": {
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": ">= 6.0.0"
+	}
+}

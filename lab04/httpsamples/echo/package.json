@@ -1,0 +1,9 @@
+{
+	"name": "echo",
+	"description": "COMPS381F - Echo Server",
+	"version": "0.0.1",
+	"scripts" : {
+		"start": "node echo.js"
+	},
+	"engine": "*"
+}
