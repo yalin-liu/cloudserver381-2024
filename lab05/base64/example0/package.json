@@ -1,0 +1,14 @@
+{
+    "name": "server",
+    "description": "example",
+    "author": "Raymond SO",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongodb": "3.1",
+        "formidable": "1.2.2"
+    },
+    "engine": "node >= 12.10.0",
+    "scripts": {
+        "start": "node server"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "server",
+    "description": "ODM App",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongoose": "4.13.19"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {"start": "node server"}
+}
+
