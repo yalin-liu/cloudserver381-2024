@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "description": "NodeJS Express App",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "*"
+    },
+    "engine": "*",
+    "scripts": {
+        "start": "node server"
+    }
+}

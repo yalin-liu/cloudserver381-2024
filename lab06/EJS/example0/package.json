@@ -1,0 +1,14 @@
+{
+    "name": "server",
+    "description": "Node.js EXPRESS EJS app",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "*",
+        "ejs": "*"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
