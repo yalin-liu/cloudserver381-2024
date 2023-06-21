@@ -1,0 +1,31 @@
+version: "2"
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    ports:
+      - "8099:8099"
+    networks:
+      - nodeapp-network
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    environment:
+      # provide your credentials here
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    command: [--auth]
+    #volumes:
+    #  - ./data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - nodeapp-network
+
+networks:
+  nodeapp-network:
+    driver: bridge
