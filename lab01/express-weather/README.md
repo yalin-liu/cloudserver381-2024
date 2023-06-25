@@ -23,4 +23,4 @@ $ npm start
 ```
 3. Test your app by sending to it a HTTP `GET` request.  Open http://localhost:8099 in your web browser.
 
-[Deploy your app to Heroku](https://github.com/yalin-liu/cloudapp.git) if the app is working correctly.
+[Deploy your app to Render](https://github.com/yalin-liu/comps381-2023/tree/main/lab01/express-weather) if the app is working correctly.
