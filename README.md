@@ -7,7 +7,7 @@ You will learn .....
 - Deploy to Render platform
 - Http request in nodejs program
 
-## [Lab 02](https://github.com/yalin-liu/comps381-2023/tree/main/lab02)
+## [Lab 02]()
 - Setup MongoDB in the Ubuntu operating system
 
 ## [Lab03](https://github.com/yalin-liu/comps381-2023/tree/main/lab03)
