@@ -19,6 +19,9 @@ You will learn .....
 - Learn how to develop nodejs application
 
 ## Lab05
+- Review how to using nodejs connect MongoDb and manipulation data
+- Learn how to using nodejs connect mongoose and manipulation data for CRUD
+- Learn how to handle image file in mongoDB and mongoose
 
 ## Lab06
 - Learn ExpressJs with EJS template engine
