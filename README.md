@@ -35,7 +35,7 @@ You will learn .....
 - Learn ExpressJs session
 
 ## Lab09
-- Learn how to using expressJs create restful api
+- Learn how to using ExpressJs create restful api
 
 ## Lab10
 - Learn oauth how to implement
