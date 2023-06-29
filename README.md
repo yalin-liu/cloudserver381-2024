@@ -26,7 +26,7 @@ You will learn .....
 ## [Lab06](https://github.com/yalin-liu/comps381-2023/tree/main/lab06)
 - Learn ExpressJs with EJS template engine
 
-## [Lab07](https://github.com/yalin-liu/comps381-2023/tree/main/lab07)
+## Lab07
 - Review Lab01 to Lab06
   
 ## [Lab08](https://github.com/yalin-liu/comps381-2023/tree/main/lab08)
