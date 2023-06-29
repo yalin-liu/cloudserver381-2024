@@ -1,4 +1,4 @@
-# Comps381-2023
+# Comps381f(2023) - Server-side Technologies and Cloud Computing
 
 You will learn .....
 
