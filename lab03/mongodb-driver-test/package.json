@@ -4,7 +4,7 @@
     "author": "Raymond SO <rso@ouhk.edu.hk>",
     "version": "0.0.1",
     "dependencies": {
-        "mongodb": "3.1"
+        "mongodb": "3.6.5"
     },
     "engine": "node >= 0.10.0",
     "scripts": {
