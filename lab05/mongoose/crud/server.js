@@ -1,9 +1,7 @@
 const ObjectID = require('mongodb').ObjectID;
 const assert = require('assert');
-const http = require('http');
-const url = require('url');
 
-const mongourl = '';
+const mongourl = ''
 const mongoose = require('mongoose');
 
 const contactSchema = mongoose.Schema({ 
@@ -17,81 +15,102 @@ const contactSchema = mongoose.Schema({
 });
 
 const create = () => {
-    mongoose.connect(mongourl, {useMongoClient: true});
+    mongoose.connect(mongourl);
     const db = mongoose.connection;
     
     db.on('error', console.error.bind(console, 'connection error'));
-    db.once('open', () => {
+    db.once('open', async () => {
         const Contact = mongoose.model('contact', contactSchema);
     
-        // create a contact
-        const raymond = new Contact({name: 'Raymond', phone: [{type: 'mobile', number: '12345678'}]});
-    
-        raymond.save((err) => {
-            if (err) throw err;
+        try {
+            // create a contact
+            const raymond = new Contact({name: 'Raymond', phone: [{type: 'mobile', number: '12345678'}]});
+            const createResult = await raymond.save();
+            console.log(createResult)
             console.log('Contact created!');
+        } catch (err) {
+            console.error(err);
+        } finally {
             db.close();
             read();
-        })
-    })
+        }
+    });
 }
 
 const read = () => {
-    mongoose.connect(mongourl, {useMongoClient: true});
+    mongoose.connect(mongourl);
     const db = mongoose.connection;
     
     db.on('error', console.error.bind(console, 'connection error'));
-    db.once('open', () => {
+    db.once('open', async () => {
         const Contact = mongoose.model('contact', contactSchema);
 
-        const criteria = {name: 'Raymond'};
-        Contact.find(criteria, (err, results) => {
-            console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${results.length}`);
-            for (var doc of results) {
+        try {
+            const criteria = {name: 'Raymond'};
+            const searchResult = await Contact.find(criteria).exec();
+            console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${searchResult.length}`);
+
+            for (var doc of searchResult) {
                 console.log(doc.name);
                 for (phone of doc.phone) {
-                    console.log(`type: ${phone.type} - ${phone.number}`)
+                    console.log(`type: ${phone.type} - ${phone.number}`);
                 }
             }
+        } catch (err) {
+            console.error(err);
+        } finally {
             db.close();
-        })
-    })
+        }
+    });
 }
 
 const update = () => {
-    mongoose.connect(mongourl, {useMongoClient: true});
+    mongoose.connect(mongourl);
     const db = mongoose.connection;
     
     db.on('error', console.error.bind(console, 'connection error'));
-    db.once('open', () => {
+    db.once('open', async () => {
         const Contact = mongoose.model('contact', contactSchema);
 
-        Contact.findOne({name: 'Raymond'}, (err, results) => {
+        try {
+            const searchResult = await Contact.findOne({name: 'Raymond'}).exec();
+
             // change phone number
-            results.phone[0].number = '19971997';
-            results.save((err) => {
-                if (err) throw err
-                console.log('Contact updated!');
-                db.close();
-                read();
-            })
-        })
-    })
+            searchResult.phone[0].number = '19971997';
+
+            await searchResult.save();
+            console.log('Contact updated!');
+        } catch (err) {
+            console.error(err);
+        } finally {
+            db.close();
+            read();
+        }
+    });
 }
 
 const del = () => {
-    mongoose.connect(mongourl, {useMongoClient: true});
+    mongoose.connect(mongourl);
     const db = mongoose.connection;
     
     db.on('error', console.error.bind(console, 'connection error'));
-    db.once('open', () => {
+    db.once('open', async () => {
         const Contact = mongoose.model('contact', contactSchema);
 
-        Contact.deleteMany({name: 'Raymond'}, (err) => {
-            if (err) throw err;
+        try {
+            await Contact.deleteMany({name: 'Raymond'});
+            console.log('Contact deleted!');
+        } catch (err) {
+            console.error(err);
+        } finally {
             db.close();
             read();
-        })
-    })
+        }
+    });
 }
 
+
+create();
+// read();
+// update();
+// del();
