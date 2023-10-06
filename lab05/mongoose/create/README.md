@@ -17,7 +17,7 @@ npm start
 ```
 
 # `server(v1).js` is a new version
-It requires the node version (v14.19.0 or above) and the mongoose version (^7.5.4)
+It requires the node version (v14.20.1 or above) and the mongoose version (^7.5.4)
 
 MongoDB connection URL (node.js driver version 4.0 or later)
 
