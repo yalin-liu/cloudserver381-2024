@@ -35,18 +35,21 @@ const server = http.createServer((req,res) => {
 	if (parsedURL.pathname == '/show') {
 		var fields = filterResult(parsedURL.query.id);
 		const db = mongoose.connection;
-		mongoose.connect('mongodb://',
-			{useMongoClient: true}
-		);
+
+		const uri = ''
+		mongoose.connect(uri);
+
 		db.on('error', console.error.bind(console, 'connection error:'));
-		db.once('open',()=> {
+		db.once('open', async ()=> {
 			const Kitten = mongoose.model('Kitten', kittySchema);
-			Kitten.find({},fields,function(err,results) {
-				assert.equal(err,null);
+			try {
+				let findResult = await Kitten.find({},fields).exec();
+				renderResult(res, findResult);
+			} catch (err) {
+				console.error(err);
+			} finally {
 				db.close();
-				renderResult(res,results);
-				res.end();
-			})
+			}
 		});
 	}
 	else {
