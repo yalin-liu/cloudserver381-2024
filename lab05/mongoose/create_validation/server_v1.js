@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-// mongoose.Promise = global.Promise;
-// mongoose.Promise = require('bluebird');
-
 const uri = ''
 mongoose.connect(uri);
 
