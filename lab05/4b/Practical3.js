@@ -1,10 +1,10 @@
-const { ObjectId } = require('mongodb');
+const { ObjectId } = require('mongodb');//Alin: require "mongodb": "^6.1.0"
 const assert = require('assert');
 const http = require('http');
 const url = require('url');
 
 const mongourl = '';
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');//Alin: require "mongoose": "^7.5.4",
 const bookingSchema = mongoose.Schema({ 
     bookingid: String,
     mobile: String
@@ -35,7 +35,6 @@ const handle_Find = (res, criteria) => {
             console.log("Closed DB connection");
             db.close();
 		}
-		        
 		//Booking.find(criteria, (err,results) => {
         //    if (err) return console.error(err);
         //    res.writeHead(200, {"content-type":"text/html"});
