@@ -4,24 +4,22 @@ const http = require('http');
 const url = require('url');
 
 const mongourl = '';
-const mongoose = require('mongoose');//Alin: require "mongoose": "^7.5.4",
+const mongoose = require('mongoose');//Alin: require "mongoose": "^7.5.4"
 const bookingSchema = mongoose.Schema({ 
     bookingid: String,
     mobile: String
 });
 
 const handle_Find = (res, criteria) => {
-    mongoose.connect(mongourl);// remove , {useMongoClient: true}
+    mongoose.connect(mongourl); //"mongoose": "^7.5.4", remove {useMongoClient: true}
 
     let db = mongoose.connection;
 
     db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', async () => { //async
-		
+    db.once('open', async () => { //"mongoose": "^7.5.4", use async
         const Booking = mongoose.model('booking',bookingSchema);
         let findResult = [];
-
-		try {
+  		try {
 			findResult = await Booking.find(criteria).exec();
 		} catch (err) {
 			console.error(err);
@@ -35,6 +33,7 @@ const handle_Find = (res, criteria) => {
             console.log("Closed DB connection");
             db.close();
 		}
+		// old version mongoose		        
 		//Booking.find(criteria, (err,results) => {
         //    if (err) return console.error(err);
         //    res.writeHead(200, {"content-type":"text/html"});
@@ -50,12 +49,12 @@ const handle_Find = (res, criteria) => {
 }
 
 const handle_Details = (res, criteria) => {
-    mongoose.connect(mongourl);// remove , {useMongoClient: true}
+    mongoose.connect(mongourl);
 
     let db = mongoose.connection;
 
     db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', async () => { //async
+    db.once('open', async () => { 
         /* use Document ID for query */
         let DOCID = {};
         DOCID['_id'] = new ObjectId(criteria._id)
@@ -63,7 +62,7 @@ const handle_Details = (res, criteria) => {
         let findResult = {};
 
 		try {
-			findResult = await Booking.findOne(criteria);//.exec();
+			findResult = await Booking.findOne(criteria).exec();
 		} catch (err) {
 			console.error(err);
 		} finally {
@@ -96,19 +95,17 @@ const handle_Details = (res, criteria) => {
 }
 
 const handle_Edit = (res, criteria) => {
-    mongoose.connect(mongourl);// remove , {useMongoClient: true}
-    
+    mongoose.connect(mongourl);
     let db = mongoose.connection;
-
     db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', async () => { //async
+    db.once('open', async () => { 
         /* use Document ID for query */
         let DOCID = {};
         DOCID['_id'] = new ObjectId(criteria._id)
         const Booking = mongoose.model('booking',bookingSchema);
         let findResult = {}
         try {
-			findResult = await Booking.findOne(criteria);//.exec();
+			findResult = await Booking.findOne(criteria).exec();
 		} catch (err) {
 			consolde.error(err);
 		} finally {
@@ -138,26 +135,21 @@ const handle_Edit = (res, criteria) => {
 }
 
 const handle_Update = (res, criteria) => {
-    mongoose.connect(mongourl);//remove , {useMongoClient: true}
-    
+    mongoose.connect(mongourl);
     const db = mongoose.connection;//let > const
-
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', async () => {//async
         /* use Document ID for query */
         let DOCID = {};
-
         // one way
         // DOCID['_id'] = new mongoose.Types.ObjectId(criteria._id)
-
         // second way
         DOCID['_id'] = (criteria._id).toString();
-
         const Booking = mongoose.model('booking',bookingSchema);
         let findResult = {};
 		//update 
 		try {
-			findResult = await Booking.findOne(DOCID);//.exec();
+			findResult = await Booking.findOne(DOCID).exec();
 			findResult.bookingid = criteria.bookingid;
 			findResult.mobile = criteria.mobile;
 			await findResult.save();
