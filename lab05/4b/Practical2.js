@@ -1,9 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
-// Q2
 const fs = require('fs');
 const formidable = require('formidable');
-//
 const assert = require('assert');
 const http = require('http');
 const url = require('url');
@@ -11,7 +9,7 @@ const url = require('url');
 const mongourl = '';
 const dbName = 'test';
 
-const findDocument = (db, criteria, callback) => {
+const findDocument =  (db, criteria, callback) => {
     let cursor = db.collection('bookings').find(criteria);
     console.log(`findDocument: ${JSON.stringify(criteria)}`);
     cursor.toArray((err,docs) => {
@@ -22,7 +20,7 @@ const findDocument = (db, criteria, callback) => {
 }
 
 const handle_Find = (res, criteria) => {
-    const client = new MongoClient(mongourl);
+    const client = new MongoClient(mongourl,{ useUnifiedTopology: true });
     client.connect((err) => {
         assert.equal(null, err);
         console.log("Connected successfully to server");
@@ -135,7 +133,7 @@ const handle_Update = (req, res, criteria) => {
         if (files.filetoupload.size > 0) {
             fs.readFile(files.filetoupload.path, (err,data) => {
                 assert.equal(err,null);
-                updateDoc['photo'] = new Buffer.from(data).toString('base64');
+                updateDoc['photo'] =  Buffer.from(data).toString('base64');
                 updateDocument(DOCID, updateDoc, (results) => {
                     res.writeHead(200, {"content-type":"text/html"});
                     res.write(`<html><body><p>Updated ${results.result.nModified} document(s)<p><br>`);
