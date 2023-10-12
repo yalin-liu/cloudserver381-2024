@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const ObjectID = require('mongodb').ObjectID;
+const ObjectID = require('mongodb').ObjectID;//Alin: "mongodb": "3.6.5" works
 const assert = require('assert');
 const http = require('http');
 const url = require('url');
