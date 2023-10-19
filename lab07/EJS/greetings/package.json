@@ -1,0 +1,14 @@
+{
+    "name": "server",
+    "description": "EJS Example",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "ejs": "*",
+        "express": "*"
+    },
+    "engine": "node >= 12.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
