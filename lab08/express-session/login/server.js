@@ -12,8 +12,6 @@ const users = new Array(
 	{name: 'guest', password: 'guest'}
 );
 
-app.set('view engine','ejs');
-
 app.use(session({
   name: 'loginSession',
   keys: [SECRETKEY]
