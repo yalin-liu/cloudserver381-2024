@@ -24,10 +24,10 @@ You will learn .....
 - Learn how to handle image file in mongoDB and mongoose
 
 ## [Lab06](https://github.com/yalin-liu/comps381-2023/tree/main/lab06)
-- Learn ExpressJs with EJS template engine
+- Learn ExpressJs template engine
 
-## Lab07
-- Review Lab01 to Lab06
+## [Lab07](https://github.com/yalin-liu/comps381-2023/tree/main/lab07/EJS)
+- Learn ExpressJs with EJS template engine
   
 ## [Lab08](https://github.com/yalin-liu/comps381-2023/tree/main/lab08)
 - Learn ExpressJS middleware
