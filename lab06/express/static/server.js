@@ -8,7 +8,7 @@ app.get('/',(req,res) => {
     res.render('index.html');
 })
 
-const server = app.listen(process.env.PORT || 8099, () => {
+const server = app.listen(process.env.PORT || 3000, () => { // https://www.quora.com/Why-is-port-3000-used-when-running-a-Node-js-application
     const port = server.address().port;
     console.log(`Server is listening at port ${port}`); 
 });
