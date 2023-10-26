@@ -26,10 +26,8 @@ You will learn .....
 ## [Lab06](https://github.com/yalin-liu/comps381-2023/tree/main/lab06)
 - Learn ExpressJs engine
 
-## [Lab07](https://github.com/yalin-liu/comps381-2023/tree/main/lab07/EJS)
+## [Lab07](https://github.com/yalin-liu/comps381-2023/tree/main/lab07)
 - Learn ExpressJs with EJS template engine
-  
-## [Lab08](https://github.com/yalin-liu/comps381-2023/tree/main/lab08)
 - Learn ExpressJS middleware
 - Learn ExpressJs cookie
 - Learn ExpressJs session
