@@ -32,7 +32,7 @@ You will learn .....
 - Learn ExpressJs cookie
 - Learn ExpressJs session
 
-## [Lab08](https://github.com/yalin-liu/comps381-2023/tree/main/lab09)
+## [Lab08](https://github.com/yalin-liu/comps381-2023/tree/main/lab08)
 - Learn how to using ExpressJs create restful api
 
 ## [Lab10](https://github.com/yalin-liu/comps381-2023/tree/main/lab10)
