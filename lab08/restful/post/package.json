@@ -7,7 +7,7 @@
         "body-parser": "*",
         "ejs": "*",
         "express": "*",
-        "nodemon": "^1.19.4"
+        "nodemon": "3.0.1"
     },
     "engine": "node >= 0.10.0",
     "scripts": {
