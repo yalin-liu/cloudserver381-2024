@@ -35,8 +35,8 @@ You will learn .....
 ## [Lab08](https://github.com/yalin-liu/comps381-2023/tree/main/lab08)
 - Learn how to using ExpressJs create restful api
 
-## [Lab10](https://github.com/yalin-liu/comps381-2023/tree/main/lab10)
+## [Lab09](https://github.com/yalin-liu/comps381-2023/tree/main/lab09)
 - Learn oauth how to implement
 
-## [Lab11](https://github.com/yalin-liu/comps381-2023/tree/main/lab11)
+## [Lab10](https://github.com/yalin-liu/comps381-2023/tree/main/lab10)
 - Learn dockerfile and docker-compose.yml file
