@@ -4,7 +4,6 @@ FROM node:4-alpine
 # node:<version>-alpine, this image is based on the popular Alpine Linux project, available in the alpine official image. 
 # Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
 
-
 # Copy the local directory file to the Docker client’s current directory
 COPY server.js /
 
