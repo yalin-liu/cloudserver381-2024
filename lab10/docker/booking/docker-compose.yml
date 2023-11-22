@@ -13,7 +13,7 @@
 
       mongo:
         container_name: mongo
-        image: mong:3.6 # The image which you have to pull.
+        image: mongo:3.6 # The image which you have to pull.
         environment: # The environment variables, such as DB credentials, and so on.
           # provide your credentials here
           - MONGO_INITDB_ROOT_USERNAME=root
