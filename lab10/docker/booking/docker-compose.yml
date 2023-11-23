@@ -1,5 +1,5 @@
-    version: "2" # The docker-compose version
-    services: # Defines the services that we need to run
+    version: "2" 
+    services: 
       app: # A custom name for one of your containers
         container_name: app # The name for each container
         restart: always
