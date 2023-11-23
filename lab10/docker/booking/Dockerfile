@@ -1,6 +1,6 @@
 FROM node:14
-RUN mkdir -p /usr/src/app
-RUN mkdir -p /usr/src/app/views
+RUN mkdir /usr/src/app # old: RUN mkdir -p /usr/src/app 
+RUN mkdir /usr/src/app/views # old: RUN mkdir -p /usr/src/app/views
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 COPY views/* /usr/src/app/views/
