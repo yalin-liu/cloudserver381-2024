@@ -1,32 +1,44 @@
-const { MongoClient } = require("mongodb");
-const dbName = "test";
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const collectionName = 'restaurants'
 // Replace the uri string with your MongoDB deployment's connection string.
-const uri = ``;
-const client = new MongoClient(uri, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+const url = '';
 
-const countRestaurants = (db, callback) => {
-	let collection = db.collection(collectionName);
-
-	collection.countDocuments({}, {}, (err, count) => {
-		if (err) { throw err }
-		callback(count);
-	})
+const countRestaurants = async (db) => {
+	var collection = db.collection(collectionName);
+	const count = await collection.countDocuments();
+	console.log(`There are ${count} documents in the "${collectionName}" collection`);
 }
 
-try {
-	client.connect(err => {
-		const db = client.db(dbName)
+async function main() {
+	// invoking the const MongoCLient, the first executable statement
+	const client = new MongoClient(url, {
+		serverApi: {
+			version: ServerApiVersion.v1,
+			strict: true,
+			deprecationErrors: true,
+		}
+	});
 
-		countRestaurants(db, (count) => {
-			client.close(() => console.log(`There are ${count} document(s) in the "${collectionName}" collection`));
-		})
-	})
-} catch (err) {
-	console.error(err)
+	// Database Name
+	const dbName = 'test';
+
+	try {
+		// Connect the client to the server	(optional starting in v4.7)
+		await client.connect();
+
+		// Send a ping to confirm a successful connection
+		const pingResult = await client.db("admin").command({ ping: 1 });
+		console.log("Ping Result >>>>>> ", pingResult);
+		console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+		const db = client.db(dbName);
+		await countRestaurants(db);
+	} catch(err) {
+		console.error(err);
+	} finally {
+		// Ensures that the client will close when you finish/error
+		await client.close();
+	}
 }
-
-
+main().catch(console.dir);
+  

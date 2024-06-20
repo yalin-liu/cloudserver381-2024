@@ -1,6 +1,7 @@
 const http = require('http'); 
 const url = require('url');
 
+// Access link: http://localhost:8099/login?name=peter&password=123
 const handle_incoming_request = (req,res) => {
    let timestamp = new Date().toISOString();
    console.log(`Incoming request ${req.method}, ${req.url} received at ${timestamp}`);

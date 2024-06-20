@@ -7,6 +7,7 @@ const kittySchema = require('./models/kitty');
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
+
 db.once('open', async () => {
 	let Kitten = mongoose.model('Kitten', kittySchema);
 

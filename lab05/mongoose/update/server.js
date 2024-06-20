@@ -6,7 +6,8 @@ const kittySchema = require('./models/kitty');
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', async (callback) => {
+
+db.once('open', async () => {
 	let Kitten = mongoose.model('Kitten', kittySchema);
 	try {
 		let searchResult = await Kitten.findOne({name: "fluffy"}).exec();
@@ -20,15 +21,4 @@ db.once('open', async (callback) => {
 	} finally {
 		db.close();
 	}
-
-	// Kitten.findOne({name: "fluffy"}, (err,result) => {
-	// 	if (err) return console.error(err);
-	// 	console.log(result);	
-	// 	result.name = "lion";
-	// 	result.save((err) => {
-	// 		if (err) throw err
-	// 		console.log("Name changed");
-	// 		db.close();
-	// 	});
-	// });
 });

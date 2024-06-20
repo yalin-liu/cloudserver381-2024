@@ -1,31 +1,45 @@
-const { MongoClient } = require("mongodb");
-const dbName = "test";
-const collectionName = 'restaurants'
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const collectionName = 'restaurants';
 // Replace the uri string with your MongoDB deployment's connection string.
-const uri = ``;
-const client = new MongoClient(uri, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
-});
+const url = '';
 
-const replaceRestaurants = (db, callback) => {
-   db.collection(collectionName)
-      .replaceOne(
-         { "restaurant_id": "41156888" },
-         { "name": "Unknown" },
-         (err, results) => {
-            callback(results);
-         });
+const replaceRestaurants = async (db) => {
+   var collection = db.collection(collectionName);
+   var result = await collection.replaceOne({ "restaurant_id": "30191841" }, { "name": "Unknown", "restaurant_id": "30191841" });
+   return result;
 };
 
-try {
-   client.connect(err => {
-      const db = client.db(dbName)
+async function main() {
+	// invoking the const MongoCLient, the first executable statement
+	const client = new MongoClient(url, {
+		serverApi: {
+			version: ServerApiVersion.v1,
+			strict: true,
+			deprecationErrors: true,
+		}
+	});
 
-      replaceRestaurants(db, (results) => {
-         client.close(() => console.log(results));
-      })
-   })
-} catch (err) {
-   console.error(err)
+	// Database Name
+	const dbName = 'test';
+
+	try {
+		// Connect the client to the server	(optional starting in v4.7)
+		await client.connect();
+
+		// Send a ping to confirm a successful connection
+		const pingResult = await client.db("admin").command({ ping: 1 });
+		console.log("Ping Result >>>>>> ", pingResult);
+		console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+		const db = client.db(dbName);
+	   const result = await replaceRestaurants(db);
+      console.log(result);
+	} catch(err) {
+		console.error(err);
+	} finally {
+		// Ensures that the client will close when you finish/error
+		await client.close();
+	}
 }
+main().catch(console.dir);
+  

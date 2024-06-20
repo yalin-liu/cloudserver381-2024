@@ -1,32 +1,50 @@
-const { MongoClient } = require("mongodb");
-const dbName = "test";
-const collectionName = 'books'
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const collectionName = 'books';
 // Replace the uri string with your MongoDB deployment's connection string.
-const uri = ``;
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const url = '';
 
-const insertDocument = (db, callback) => {
-  db.collection(collectionName).insertOne({
+const insertDocument = async (db) => {
+  var collection = db.collection(collectionName);
+  var results = await collection.insertOne({
     "name": "Introduction to Node.js",
     "author": "John Dole",
     "price": 75.00,
     "stock": 0
-  }, (err, results) => {
-    callback(results);
   });
+  return results;
 };
 
-try {
-  client.connect(err => {
-    const db = client.db(dbName)
+async function main() {
+	// invoking the const MongoCLient, the first executable statement
+	const client = new MongoClient(url, {
+		serverApi: {
+			version: ServerApiVersion.v1,
+			strict: true,
+			deprecationErrors: true,
+		}
+	});
 
-    insertDocument(db, (results) => {
-      client.close(() => console.log(`Inserted ${results.insertedCount} document (_id: ${results.insertedId}) into the ${collectionName} collection.`));
-    })
-  })
-} catch (err) {
-  console.error(err)
+	// Database Name
+	const dbName = 'test';
+
+	try {
+		// Connect the client to the server	(optional starting in v4.7)
+		await client.connect();
+
+		// Send a ping to confirm a successful connection
+		const pingResult = await client.db("admin").command({ ping: 1 });
+		console.log("Ping Result >>>>>> ", pingResult);
+		console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+		const db = client.db(dbName);
+		const results = await insertDocument(db);
+    console.log(`Inserted 1 document (_id: ${results.insertedId}) into the ${collectionName} collection.`);
+	} catch(err) {
+		console.error(err);
+	} finally {
+		// Ensures that the client will close when you finish/error
+		await client.close();
+	}
 }
+main().catch(console.dir);
+  

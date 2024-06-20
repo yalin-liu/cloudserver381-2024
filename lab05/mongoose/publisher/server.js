@@ -7,7 +7,8 @@ const publisherSchema = require('./models/publisher');
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', async (callback) => {
+
+db.once('open', async () => {
 	let Publisher = mongoose.model('Publisher', publisherSchema);
 	try {
 		let p = new Publisher({name: 'ABC', address: '30 Good Shepherd Street'});
