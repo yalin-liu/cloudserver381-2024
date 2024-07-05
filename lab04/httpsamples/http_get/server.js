@@ -9,6 +9,7 @@ const server = http.createServer((req,res) => {
    // convert path and query string parameters of incoming requests to JSON
    const parsedURL = url.parse(req.url,true);
    
+   // Access link: http://localhost:8099/login?name=peter&password=123
    switch(parsedURL.pathname) {
       case '/login':
          res.writeHead(200, {'Content-Type': 'text/html'});  // send HTTP response header

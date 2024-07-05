@@ -7,9 +7,10 @@ const kittySchema = require('./models/kitty');
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open',async  (callback) => {
+
+db.once('open',async  () => {
 	let Kitten = mongoose.model('Kitten', kittySchema);
-	let fluffy = new Kitten({name: 'fluffy', age: 90});
+	let fluffy = new Kitten({name: 'fluffy', age: 21});
 
 	try {
 		await fluffy.validate();
@@ -21,3 +22,4 @@ db.once('open',async  (callback) => {
 		db.close();
 	}
 });
+

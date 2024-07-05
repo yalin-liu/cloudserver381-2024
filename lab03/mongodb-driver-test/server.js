@@ -1,27 +1,46 @@
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const assert = require('assert');
 const ObjectId = require('mongodb').ObjectID;
+const collectionName = 'restaurants'
 const url = '';  // MongoDB Atlas Connection URL
-const dbName = 'test'; // Database Name
 
-const countRestaurants = function(db, callback) {
-	var collection = db.collection('restaurants');
-	collection.countDocuments(function(err,count) { //`countdocuments` operation in MongoDB
-		assert.equal(null,err);
-		console.log(`There are ${count} documents in the restuarant collection`);
-	})
-	callback();
+const countRestaurants = async (db) => {
+	var collection = db.collection(collectionName);
+	const count = await collection.countDocuments();
+	assert.ok(count >= 0 , "Expect records greater than zero");
+	console.log(`There are ${count} documents in the restuarant collection`);
 }
 
-const client = new MongoClient(url); // invoking the const MongoCLient, the first executable statement
+async function main() {
+	// invoking the const MongoCLient, the first executable statement
+	const client = new MongoClient(url, {
+		serverApi: {
+			version: ServerApiVersion.v1,
+			strict: true,
+			deprecationErrors: true,
+		}
+	});
 
-client.connect(function(err) {
-   assert.equal(null,err);
-   console.log(`Connected successfully to ${url}`);
+	// Database Name
+	const dbName = 'test';
 
-   const db = client.db(dbName);
+	try {
+		// Connect the client to the server	(optional starting in v4.7)
+		await client.connect();
 
-   countRestaurants(db, function() {
-	client.close();
-   })
-})
+		// Send a ping to confirm a successful connection
+		const pingResult = await client.db("admin").command({ ping: 1 });
+		console.log("Ping Result >>>>>> ", pingResult);
+		console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+		const db = client.db(dbName);
+		await countRestaurants(db);
+	} catch(err) {
+		console.error(err);
+	} finally {
+		// Ensures that the client will close when you finish/error
+		await client.close();
+	}
+}
+main().catch(console.dir);
+  

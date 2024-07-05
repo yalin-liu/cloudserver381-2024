@@ -1,53 +1,43 @@
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-const http = require('http');
-const url = require('url');
- 
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const mongourl = '';
 const dbName = 'test';
-const client = new MongoClient(mongourl);
- 
-const criteria = {"bookingid": "BK001"};
+const collectionName = "bookings";
 
+const criteria = {"bookingid": "1111"};
 
-const findDocument = (db, criteria, callback) => {
-    let cursor = db.collection('bookings').find(criteria);
-    cursor.forEach((doc) => {
-        callback(doc);
-    });
+const findDocument = async (db) => {
+    var collection = db.collection(collectionName);
+    let results = await collection.find(criteria).toArray();
+    return results;
 }
 
-client.connect((err) => {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-    const db = client.db(dbName);
-    findDocument(db, criteria, (doc) => {
-        client.close();
-        console.log("Closed DB connection");
-        console.log(doc);
-        
-    })
-});
+async function main() {
+	// invoking the const MongoCLient, the first executable statement
+	const client = new MongoClient(mongourl, {
+		serverApi: {
+			version: ServerApiVersion.v1,
+			strict: true,
+			deprecationErrors: true,
+		}
+	});
 
-/*
-const findDocument = (db, criteria, callback) => {
-    let cursor = db.collection('bookings').find(criteria);
-    cursor.toArray((err,docs) => {
-        assert.equal(null,err);
-        callback(docs);
-    })
+	try {
+		// Connect the client to the server	(optional starting in v4.7)
+		await client.connect();
+
+		// Send a ping to confirm a successful connection
+		const pingResult = await client.db("admin").command({ ping: 1 });
+		console.log("Ping Result >>>>>> ", pingResult);
+		console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+		const db = client.db(dbName);
+		const results = await findDocument(db);
+        console.log(results);
+	} catch(err) {
+		console.error(err);
+	} finally {
+		// Ensures that the client will close when you finish/error
+		await client.close();
+	}
 }
-
-client.connect((err) => {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-    const db = client.db(dbName);
-    findDocument(db, criteria, (docs) => {
-        client.close();
-        console.log("Closed DB connection");
-        for (doc of docs) {
-            console.log(doc);
-        }
-    })
-});
-*/
+main().catch(console.dir);
