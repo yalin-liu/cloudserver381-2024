@@ -18,6 +18,7 @@ const renderResult = (res,kitties) => {
 	res.write('</ol>');
 	res.write('</H2>');
 	res.write('</body></html>');
+        res.end();
 }
 
 // Controller
