@@ -11,7 +11,8 @@ var options = {
     host: 'api.openweathermap.org',
     port: 80,
     path: '/data/2.5/weather?q=Tokyo,jp&units=metric',
-    method: 'GET'
+    method: 'GET',
+    path: ''
 };
 
 app.use(cors());
@@ -38,9 +39,10 @@ app.get('/api/weather',(req,res) => {
 
 	console.log(`City: ${city}`);
 	setOptionPath(city);
-	getWeatherDetails().then(data => {
-    	res.end.json(data);
-   })
+	getWeatherDetails()
+      .then(data => {
+         res.json(data);
+      });
 })
 
 app.listen(process.env.PORT || 8099);
