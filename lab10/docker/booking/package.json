@@ -7,7 +7,7 @@
         "ejs": "*",
         "express": "*",
         "express-formidable": "*",
-        "mongodb": "3.6.3",
+        "mongodb": "^6.7.0",
         "nodemon": "^2.0.6",
         "passport": "*",
         "passport-facebook": "*",
