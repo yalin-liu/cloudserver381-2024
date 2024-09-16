@@ -33,8 +33,8 @@ const FacebookStrategy    = require('passport-facebook').Strategy;
 const session             = require('express-session');
 
 const facebookAuth = {
-      'clientID'        : '', // facebook App ID
-      'clientSecret'    : '', // facebook App Secret
+      'clientID'        : '218475671269651', // facebook App ID
+      'clientSecret'    : '507d891eef48b86fc3bee8e1a1bc8f5f', // facebook App Secret
       'callbackURL'     : 'http://localhost:8099/auth/facebook/callback'
 };
 
