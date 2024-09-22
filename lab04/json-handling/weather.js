@@ -9,7 +9,7 @@ const options = {
 
 const req = http.request(options, (res) => {
     res.on('data', (data) => {
-		console.log(data);
+		console.log(`${data}`);
     });
 });
 
