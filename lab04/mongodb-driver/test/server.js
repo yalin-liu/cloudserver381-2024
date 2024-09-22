@@ -18,6 +18,6 @@ async function main() {
 }
 
 main()
-  .then(console.log("Running the first MongoDB-driver test! ------Alin (This is an async running result.)"))
+  .then(console.log("Running your MongoDB-driver! ------Alin (This is an async running result.)"))
   .catch(console.error)
   .finally(() => client.close());
