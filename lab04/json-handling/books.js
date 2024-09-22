@@ -5,7 +5,7 @@ const books = [
 	 reviews: [
 	    {date:'2015-01-01T14:00:00Z',score:8},
 	    {date:'2015-02-01T08:00:00Z',score:7.5}
-	 ]ss},
+	 ]},
 	{name: "Intro to the MEAN stack", 
 	 price: 300, 
 	 stock: 30,
