@@ -12,9 +12,9 @@ const countRestaurants = async (db) => {
 
 async function main() {
     await client.connect();	
-	console.log("You successfully connected to MongoDB!");
+    console.log("You successfully connected to MongoDB!");
     const db = client.db(dbName);
-	await countRestaurants(db);
+    await countRestaurants(db);
 }
 
 main()
