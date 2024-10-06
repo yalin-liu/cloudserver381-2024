@@ -1,1 +1,0 @@
-# Examples of storing binary data in MongoDB using Base64
