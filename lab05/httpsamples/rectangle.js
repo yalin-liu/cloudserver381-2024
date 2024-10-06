@@ -12,7 +12,7 @@ function handle_incoming_request(req, res) {
 	var queryAsObject = parsedURL.query;
 	var obj = new Rectangle(queryAsObject.width, queryAsObject.length);  
 	res.writeHead(200, {"Content-Type" : "application/json"});  
-	res.end(JSON.stringify(obj));;
+	res.end(JSON.stringify(obj));
 	}
 
 const server = http.createServer(handle_incoming_request); 
