@@ -1,0 +1,13 @@
+{
+    "name": "Test",
+    "description": "Test example",
+    "author": "Alin Yalin Liu <ylliu@hkmu.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongodb": "6.9.0"
+    },
+    "engine": "node >= 16.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
