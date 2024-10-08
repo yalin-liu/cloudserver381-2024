@@ -5,7 +5,7 @@ const port = 8099;
 
 const uri = "";
 const client = new MongoClient(uri); 
-const dbName = 'sample_restaurantss';
+const dbName = 'sample_restaurants';
 const collectionName = "restaurants";
 
 //Complete the function.
