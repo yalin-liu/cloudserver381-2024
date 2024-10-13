@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "description": "Node Express App",
+    "author": "Yalin Liu <ylliu@hkmu.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "*"
+    },
+    "engine": "*",
+    "scripts": {
+        "start": "node server"
+    }
+}
