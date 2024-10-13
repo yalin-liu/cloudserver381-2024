@@ -1,7 +1,7 @@
 {
     "name": "server",
-    "description": "NodeJS Express App",
-    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "description": "Express Static App",
+    "author": "Yalin Liu <ylliu@hkmu.edu.hk>",
     "version": "0.0.1",
     "dependencies": {
         "express": "*"
