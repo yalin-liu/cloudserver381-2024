@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "description": "ODM App",
+    "author": "Yalin Liu <ylliu@hkmu.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongoose": "^8.4.3"
+    },
+    "engine": "node >= 20.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
