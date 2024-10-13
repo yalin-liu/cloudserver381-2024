@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const uri = '';
 
 // Data modelling 
-// Way 1: building new scheme in server.js
+// Way 1: building a new scheme in server.js
 // const kittySchema = new mongoose.Schema({name: String, age: Number});
 // Way 2: invoking your scheme defined in kitty.js 
 // const kittySchema = require('./models/kitty’);
