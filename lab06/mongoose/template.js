@@ -12,11 +12,11 @@ const uri = '';
 
 async function main() {
   await mongoose.connect(uri);
-  console.log('Mongoose Connected!’)
+  console.log('Mongoose Connected!')
   // do some data operations
 }
 
 main()
   .then(console.log('Kitten created'))
-  .catch(console.log(err))
+  .catch(()=>console.log(err))
   .finally()
