@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // Specify your connection string to MongoDB
 // Replace <username> and <password>
 // Add dbName (name of your database) between / and ? if you want
-const uri = 'mongodb+srv://ylliustudy:ylliustudy@cluster0.ss4pkul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = '';
 
 // Modelling your data via two ways:
 // Way 1: building new scheme in server.js
