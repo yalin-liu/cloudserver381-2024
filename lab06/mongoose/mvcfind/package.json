@@ -1,0 +1,13 @@
+{
+    "name": "server",
+    "description": "MVC ODM App",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongoose": "^7.5.4"
+    },
+    "engine": "node >= 20.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
