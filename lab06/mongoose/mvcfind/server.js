@@ -1,9 +1,6 @@
 const http = require('http');
 const url = require('url');
 const mongoose = require('mongoose');
-const assert = require('assert');
-
-
 const uri = '';
 
 const kittySchema = require('./models/kitty');
