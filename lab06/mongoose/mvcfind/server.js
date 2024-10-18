@@ -49,14 +49,11 @@ const server = http.createServer((req,res) => {
 		res.end();
 	}
 });
-
 async function main() {
 	server.listen(LISTENERING_PORT);
-
 	await mongoose.connect(uri);
 	console.log('Mongoose Connected!')
 }
-
 main()
   .then(console.log(`Server created: http://localhost:${LISTENERING_PORT}/`))
   .catch((err) => console.log(err))
