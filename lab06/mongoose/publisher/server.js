@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const uri = '';
-mongoose.connect(uri);
+// mongoose.connect(uri);
 
 const publisherSchema = require('./models/publisher');
 
