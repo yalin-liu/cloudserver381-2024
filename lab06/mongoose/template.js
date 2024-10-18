@@ -18,5 +18,5 @@ async function main() {
 
 main()
   .then(console.log('Kitten created'))
-  .catch(()=>console.log(err))
+  .catch((err)=>console.log(err))
   .finally()
