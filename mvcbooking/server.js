@@ -8,7 +8,7 @@ const formidable = require('express-formidable');
 // Model - modules
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
-const mongourl = 'mongodb+srv://ylliustudy:ylliustudy@cluster0.ss4pkul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongourl = '';
 const client = new MongoClient(mongourl); 
 const dbName = 'test';
 const collectionName = "bookings";
