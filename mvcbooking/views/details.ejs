@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <H2>Booking Details</H2><hr>
+        <p>Booking ID: <%= booking.bookingid %></p>
+        <p>Mobile: <%= booking.mobile %></p>
+
+        <% if (booking.photo) { %>
+            <img src="data:image/jpg;base64, <%= booking.photo %>"><br>
+        <% } %>
+
+        <a href="/edit?_id=<%= booking._id %>">edit</a><br>
+        <a href="/">home</a>
+    </body>
+</html>

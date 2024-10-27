@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <H2>Bookings (<%= nBookings %>)</H2>
+        <ul>
+            <% for (var b of bookings) { %>
+            <li>Booking ID: <a href="/details?_id=<%= b._id %>"><%= b.bookingid %></a></li>
+            <% } %>
+        </ul>
+    </body>
+</html>
+
+

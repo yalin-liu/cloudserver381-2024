@@ -1,0 +1,59 @@
+edit.ejs
+
+<html>
+    <body>
+        <form action="/update" method="POST" enctype="multipart/form-data">
+            Booking ID: <input name="bookingid" value=<%= booking.bookingid %>><br>
+            Mobile: <input name="mobile" value=<%= booking.mobile %> /><br>
+            <input type="file" name="filetoupload"><br>
+            <input type="hidden" name="_id" value=<%= booking._id %>>
+            <input type="submit" value="update">  
+        </form>
+    </body>
+</html>
+
+ 
+
+details.ejs
+
+<html>
+    <body>
+        <H2>Booking Details</H2><hr>
+        <p>Booking ID: <%= booking.bookingid %></p>
+        <p>Mobile: <%= booking.mobile %></p>
+
+        <% if (booking.photo) { %>
+            <img src="data:image/jpg;base64, <%= booking.photo %>"><br>
+        <% } %>
+
+        <a href="/edit?_id=<%= booking._id %>">edit</a><br>
+        <a href="/">home</a>
+    </body>
+</html>
+
+ 
+
+info.ejs
+
+<html>
+    <body>
+        <b><%= message %></b>
+        <p><a href="/">home</a></p>
+    </body>
+</html>
+
+ 
+
+list.ejs
+
+<html>
+    <body>
+        <H2>Bookings (<%= nBookings %>)</H2>
+        <ul>
+            <% for (var b of bookings) { %>
+            <li>Booking ID: <a href="/details?_id=<%= b._id %>"><%= b.bookingid %></a></li>
+            <% } %>
+        </ul>
+    </body>
+</html>
+
