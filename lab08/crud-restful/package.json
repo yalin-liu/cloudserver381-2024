@@ -1,0 +1,16 @@
+{
+    "name": "server",
+    "description": "RESTful App",
+    "author": "Yalin Liu <ylliu@hkmu.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "ejs": "*",
+        "express": "*",
+        "nodemon": "3.0.1",
+		"body-parser": "*"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {
+        "start": "nodemon server"
+    }
+}
