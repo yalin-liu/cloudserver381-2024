@@ -30,7 +30,7 @@ app.get('/api/simpleinterest/:principal/:rate/:time', function(req,res) {
 	let r = new SimpleInterest(Number(req.params.principal), Number(req.params.rate), Number(req.params.time));
 	res.status(200).json(r);
 	// provide a json result
-	// curl -H "accept: application/json" "localhost:8099/simpleinterest/10000/0.01/10"
+	// curl -H "accept: application/json" "localhost:8099/api/simpleinterest/10000/0.01/10"
 });
 
 app.listen(process.env.PORT || 8099);
