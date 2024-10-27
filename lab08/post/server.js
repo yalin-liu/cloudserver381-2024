@@ -2,10 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-// support parsing of application/json type post data
 app.use(bodyParser.json());
-// support parsing of application/x-www-form-urlencoded post data
-// the statement `extended: true` precises that the req.body object will contain values of any type instead of just strings.
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // web services
