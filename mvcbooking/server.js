@@ -17,7 +17,7 @@ app.use(formidable());
 mongodb ^6.9: https://www.npmjs.com/package/mongodb
 */
 const { MongoClient, ObjectId } = require("mongodb");
-const mongourl = 'mongodb+srv://ylliustudy:ylliustudy@cluster0.ss4pkul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongourl = '';
 const client = new MongoClient(mongourl); 
 const dbName = 'test';
 const collectionName = "bookings";
