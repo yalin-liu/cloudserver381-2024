@@ -12,14 +12,16 @@ class SimpleInterest {
 	}
 }
 
-// Web service testing: curl localhost:8099/simpleinterest/10000/0.01/10
-// Restful service testing: curl -H "accept: application/json" "localhost:8099/simpleinterest/10000/0.01/10"
 app.get('/simpleinterest/:principal/:rate/:time', function(req,res) {
 	let r = new SimpleInterest(Number(req.params.principal), Number(req.params.rate), Number(req.params.time));
 	if (req.headers['accept'] == 'application/json') {		
 		res.status(200).json(r);
+		// provide a json 
+		// curl -H "accept: application/json" "localhost:8099/simpleinterest/10000/0.01/10"
 	} else {
 		res.status(200).render('result',{result:r});
+		// provide a EJS UI 
+		// curl localhost:8099/simpleinterest/10000/0.01/10
 	}
 });
 
