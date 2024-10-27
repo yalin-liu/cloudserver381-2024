@@ -137,20 +137,13 @@ const handle_Update = async (req, res, criteria) => {
 			await client.close();
     		console.log("Closed DB connection");
 			res.status(200).render('info', {message: `Updated ${results.modifiedCount} document(s)`})
-            /* info.ejs
-			<html>
-				<body>
-					<b><%= message %></b>
-					<p><a href="/">home</a></p>
-				</body>
-			</html>
-            */
         } else {
             const results = await updateDocument(db, DOCID, updateDoc);
 			await client.close();
     		console.log("Closed DB connection");
 			res.status(200).render('info', {message: `Updated ${results.modifiedCount} document(s)`})
-            /* info.ejs
+        }
+	    /* info.ejs
 			<html>
 				<body>
 					<b><%= message %></b>
@@ -158,8 +151,6 @@ const handle_Update = async (req, res, criteria) => {
 				</body>
 			</html>
             */
-        }
-    //})
 }
 
 app.get('/', (req,res) => {
