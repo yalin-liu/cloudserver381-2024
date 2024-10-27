@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <form action="/update" method="POST" enctype="multipart/form-data">
+            Booking ID: <input name="bookingid" value=<%= booking.bookingid %>><br>
+            Mobile: <input name="mobile" value=<%= booking.mobile %> /><br>
+            <input type="file" name="filetoupload"><br>
+            <input type="hidden" name="_id" value=<%= booking._id %>>
+            <input type="submit" value="update">  
+        </form>
+    </body>
+</html>
