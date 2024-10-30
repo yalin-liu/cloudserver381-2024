@@ -20,10 +20,10 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=root # must be same with mongo-express admin username and mongourl username  
       - MONGO_INITDB_ROOT_PASSWORD=password # must be same with mongo-express admin password and mongourl password  
     command: [--auth]
-    volumes:
+    # volumes:
       # - ./data:/data/db #persistence data 
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./data/mongo-data.json:/data/mongo-data.json:ro
+      # - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      # - ./data/mongo-data.json:/data/mongo-data.json:ro
     ports:
       - "27017:27017"
     networks:
