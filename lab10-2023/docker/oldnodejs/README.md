@@ -9,21 +9,25 @@ This tutorial demonstrates how you run an express.js server, which requires an o
    ```
    docker build -t "your-docker-id/oldnodejs" .
    ```
-4. Check your container image.
+   or
+   ```
+   docker build -t <image_name>:<version> <build_path>
+   ```
+5. Check your container image.
    ```
    docker images
    ```
-5. Run your container.
+6. Run your container.
    ```
    docker run -d -p 8099:8099 your-docker-id/oldnodejs
    ```
-6. Verify your container is running.
+7. Verify your container is running.
    ```
    docker ps
    ```
-7. Open `localhost:8099` in your Web broswer.
-8. Which version of Node is being used now?
-9. Share your container image by uploading it to Docker Hub
+8. Open `localhost:8099` in your Web broswer.
+9. Which version of Node is being used now?
+10. Share your container image by uploading it to Docker Hub
    ```
    docker login
    docker push your-docker-id/oldnodejs
