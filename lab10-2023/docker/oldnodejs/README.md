@@ -44,6 +44,12 @@ This tutorial demonstrates how you run an express.js server, which requires an o
    docker login
    docker push your-docker-id/oldnodejs
    ```
+
+12. Stop the docker container
+```
+docker container stop <CONTAINER ID / CONTAINER NAMES>
+```
+
 ## Notes
 The following diagram summarizes what you have acheived in this tutorial.
 
