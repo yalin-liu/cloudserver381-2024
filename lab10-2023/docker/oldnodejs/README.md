@@ -13,6 +13,10 @@ This tutorial demonstrates how you run an express.js server, which requires an o
    ```
    docker build -t <image_name>:<version> <build_path>
    ```
+   Example:
+   ```
+   docker build -t studentNumber:1.0.0 .
+   ```
 5. Check your container image.
    ```
    docker images
@@ -23,7 +27,11 @@ This tutorial demonstrates how you run an express.js server, which requires an o
    ```
    or
    ```
-   docker container run -d --name myapp -p 8099:8099 <image_name>:<version>
+   docker container run -d --name <container_name> -p 8099:8099 <image_name>:<version>
+   ```
+   Example:
+   ```
+   docker container run -d --name myStudentNumber -p 8099:8099 -t studentNumber:1.0.0
    ```
 8. Verify your container is running.
    ```
