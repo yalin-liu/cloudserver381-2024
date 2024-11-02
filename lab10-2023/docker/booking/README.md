@@ -24,6 +24,10 @@ docker-compose up -d
 docker-compose down
 ```
 
+4. Access admin portal, for authentication, please see `ME_CONFIG_BASICAUTH_USERNAME` and `ME_CONFIG_BASICAUTH_PASSWORD` in "docker-compose.yml"
+
+http://localhost:8081/
+
 ## References
 1. [連接containerized Mongo Express到既有MongoDB](https://medium.com/norsys-octogone/a-local-environment-for-mongodb-with-docker-compose-ba52445b93ed)
 
