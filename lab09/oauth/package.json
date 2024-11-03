@@ -1,0 +1,17 @@
+{
+  "name": "demo",
+  "description": "Use of Passport in Node.js",
+  "author": "Raymond SO <rso@ouhk.edu.hk>",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-facebook": "*",
+    "express-session": "*"
+  },
+  "engine": "*",
+  "scripts": {
+    "start": "node server"
+  }
+}
