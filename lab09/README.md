@@ -2,12 +2,7 @@
 
 1. Create a Facebook App at [developer.facebook.com](https://developer.facebook.com/apps) to obtain an **App ID** and **App Secret**
 
-![Create a Facebook App](fb01.png)
-
-2. Put your App ID and App Secret into the `facebookAuth` variable
-
-![Configure your Facebook App](fb03.png)
-![Add Callback URL - same with your server.js](fb02.png)
+2. Put your App ID and App Secret into the `facebookAuth` variable in `server.js`.
 
    ```
    var facebookAuth = {
