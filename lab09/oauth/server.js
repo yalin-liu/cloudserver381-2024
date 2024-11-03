@@ -9,10 +9,12 @@ app.set('view engine', 'ejs');
 var user = {};  
 passport.serializeUser(function (user, done) {done(null, user);});
 passport.deserializeUser(function (id, done) {done(null, user);});
+
 app.use(session({
-    secret: "tHiSiSasEcRetStr",
+    secret: "your-secret-key",
     resave: true,
     saveUninitialized: true }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
