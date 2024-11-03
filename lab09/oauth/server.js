@@ -2,7 +2,7 @@ var express             = require('express'),
     app                 = express(),
     session             = require('express-session'),
     passport            = require('passport'),
-    OauthStrategy       = require('oauth-facebook').Strategy;//a fake strategy.
+    OauthStrategy       = require('passport-oauth').Strategy;//a fake strategy.
 
 app.set('view engine', 'ejs');
 
