@@ -1,0 +1,20 @@
+{
+    "name": "server",
+    "description": "EJS + MongoDB + Outh + RESTful express app",
+    "author": "Yalin Liu <ylliu@hkmu.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "ejs": "*",
+        "express": "*",
+        "express-formidable": "*",
+        "mongodb": "^6.7.0",
+        "nodemon": "*",
+        "passport": "*",
+        "passport-facebook": "*",
+        "express-session": "*"
+    },
+    "engine": "node >= 18.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}

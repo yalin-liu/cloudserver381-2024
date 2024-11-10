@@ -1,0 +1,22 @@
+<html>
+    <body>
+		<H1>Welcome, <%= user.name %></H1>
+		<hr/>
+		<p>You logged in through <b><%= user.type %></b>, user ID is <%= user.id %></p>
+        <H2>Booking Details</H2><hr>
+        <p>Booking ID: <%= booking.bookingid %></i></p>
+        <p>Mobile: <%= booking.mobile %></p>
+
+        <% if (booking.photo) { %>
+            <img src="data:image/jpg;base64, <%= booking.photo %>"><br>
+        <% } %>
+
+        <% if (booking.userid) { %>
+            <p><small>Created by User ID: <%= booking.userid %></small></p>
+        <% } %>
+        <br>
+        <a href="/edit?_id=<%= booking._id %>">edit</a><br>
+        <a href="/delete?_id=<%= booking._id %>">delete</a><br>
+        <a href="/">home</a>
+    </body>
+</html>

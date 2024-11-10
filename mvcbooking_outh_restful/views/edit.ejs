@@ -1,0 +1,14 @@
+<html>
+    <body>
+		<H1>Welcome, <%= user.name %></H1>
+		<hr/>
+		<p>You logged in through <b><%= user.type %></b>, user ID is <%= user.id %></p>
+        <form action="/update" method="POST" enctype="multipart/form-data">
+            Booking ID: <input name="bookingid" value=<%= booking.bookingid %>><br>
+            Mobile: <input name="mobile" value=<%= booking.mobile %> /><br>
+            <input type="file" name="filetoupload"><br>
+            <input type="hidden" name="_id" value=<%= booking._id %>>
+            <input type="submit" value="update">  
+        </form>
+    </body>
+</html>
