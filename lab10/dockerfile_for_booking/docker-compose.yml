@@ -1,0 +1,55 @@
+version: "2" 
+services: 
+  app: # A custom name for one of your containers
+    container_name: app # The name for each container
+    restart: always
+    build: .
+    ports:
+      - "8099:8099"
+    networks:
+      - nodeapp-network
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo:latest # The image which you have to pull.
+    # image: mongo:3.6 # The image which you have to pull.
+    environment: # The environment variables, such as DB credentials, and so on.
+      # provide your credentials here
+      - MONGO_INITDB_ROOT_USERNAME=root # must be same with mongo-express admin username and mongourl username  
+      - MONGO_INITDB_ROOT_PASSWORD=password # must be same with mongo-express admin password and mongourl password  
+    command: [--auth]
+    volumes:
+      # - ./data:/data/db #persistence data 
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./data/mongo-data.json:/data/mongo-data.json:ro
+    ports:
+      - "27017:27017"
+    networks:
+      - nodeapp-network
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    # network_mode: "host" # attach to host network
+    environment:
+        ME_CONFIG_MONGODB_SERVER: mongo
+        ME_CONFIG_MONGODB_PORT: 27017
+        ME_CONFIG_MONGODB_ENABLE_ADMIN: 'true'
+        ME_CONFIG_MONGODB_ADMINUSERNAME: 'root'
+        ME_CONFIG_MONGODB_ADMINPASSWORD: 'password'
+        # VCAP_APP_PORT: 38081
+        ME_CONFIG_BASICAUTH_USERNAME: 'express_admin'
+        ME_CONFIG_BASICAUTH_PASSWORD: 'express_password'
+    ports:
+      - 8081:8081
+    networks:
+      - nodeapp-network
+    depends_on:
+      - mongo
+
+networks:
+  nodeapp-network:
+    driver: bridge
