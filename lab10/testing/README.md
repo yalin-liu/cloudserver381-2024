@@ -7,7 +7,7 @@ This tutorial demonstrates how you run an express.js server, which requires an o
 3. Register at [Docker Hub](https://hub.docker.com) and obtain your Docker User ID (`your-docker-id`).
 3. Build a *container image*
    ```
-   docker build -t "your-docker-id/oldnodejs" .
+   docker build -t "your-docker-id/testing" .
    ```
 4. Check your container image.
    ```
@@ -15,7 +15,7 @@ This tutorial demonstrates how you run an express.js server, which requires an o
    ```
 5. Run your container.
    ```
-   docker run -d -p 8099:8099 your-docker-id/oldnodejs
+   docker run -d -p 8099:8099 your-docker-id/testing
    ```
 6. Verify your container is running.
    ```
@@ -26,7 +26,7 @@ This tutorial demonstrates how you run an express.js server, which requires an o
 9. Share your container image by uploading it to Docker Hub
    ```
    docker login
-   docker push your-docker-id/oldnodejs
+   docker push your-docker-id/testing
    ```
 ## Notes
 The following diagram summarizes what you have acheived in this tutorial.
